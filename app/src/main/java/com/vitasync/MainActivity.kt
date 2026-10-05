@@ -25,6 +25,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Book
 import androidx.compose.material.icons.rounded.CheckCircle
 import androidx.compose.material.icons.rounded.Close
+import androidx.compose.material.icons.rounded.DirectionsRun
 import androidx.compose.material.icons.rounded.EditNote
 import androidx.compose.material.icons.rounded.Favorite
 import androidx.compose.material.icons.rounded.LocalDining
@@ -168,7 +169,7 @@ private fun VitaSyncApp() {
                             val icon = when (tab) {
                                 AppTab.Today -> Icons.Rounded.Favorite
                                 AppTab.Learn -> Icons.Rounded.Book
-                                AppTab.Move -> Icons.AutoMirrored.Rounded.DirectionsRun
+                                AppTab.Move -> Icons.Rounded.DirectionsRun
                                 AppTab.Eat -> Icons.Rounded.Restaurant
                                 AppTab.Journal -> Icons.Rounded.EditNote
                             }
@@ -294,7 +295,7 @@ private fun TodayScreen(log: DailyLog, onWater: () -> Unit, onNavigate: (AppTab)
         Text("Seus pilares", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             PillarCard("Aprender", "${log.lessonIndex}/${lessons.size} lições", Icons.Rounded.Book, Mint, Modifier.weight(1f)) { onNavigate(AppTab.Learn) }
-            PillarCard("Movimento", if (log.workoutDone) "Treino feito" else "No seu ritmo", Icons.AutoMirrored.Rounded.DirectionsRun, Color(0xFFFFEEDB), Modifier.weight(1f)) { onNavigate(AppTab.Move) }
+            PillarCard("Movimento", if (log.workoutDone) "Treino feito" else "No seu ritmo", Icons.Rounded.DirectionsRun, Color(0xFFFFEEDB), Modifier.weight(1f)) { onNavigate(AppTab.Move) }
         }
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             PillarCard("Alimentação", "${log.mealsLogged} refeições", Icons.Rounded.LocalDining, Color(0xFFFFF2D9), Modifier.weight(1f)) { onNavigate(AppTab.Eat) }
